@@ -1,0 +1,42 @@
+def whatFlavors(cost, money):
+    # Write your code here
+    hashMap = {}
+
+    for nums in cost:
+        if nums not in hashMap.keys():
+            hashMap[nums] = 1
+        else:
+            hashMap[nums] += 1
+    
+    #print(hashMap)
+            
+    num1 = 0
+    num2 = 0
+    for nums in hashMap.keys():
+        num1 = nums
+        num2 = money-nums
+        if(num1 == num2 and hashMap[num2] == 1):
+            continue
+        if(num2 in hashMap.keys()):
+            break
+    
+    array = []
+    foundNums1 = False
+    foundNums2 = False
+    
+    # print("num1", num1)
+    # print("num2", num2)
+    # print("money", money)
+    
+    for i in range(len(cost)):
+        # print("cost: ", cost[i])
+        if(foundNums1 and foundNums2):
+            break
+        if(num1 == cost[i] and foundNums1 == False):
+            foundNums1 = True
+            array.append(i+1)
+        elif(num2 == cost[i] and foundNums2 == False):
+            foundNums2 = True
+            array.append(i+1)
+            
+    print(array[0], array[1])
