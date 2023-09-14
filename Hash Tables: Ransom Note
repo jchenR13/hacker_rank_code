@@ -1,0 +1,27 @@
+def checkMagazine(magazine, note):
+    # Write your code here
+    
+    hashMap = {}
+    
+    for words in magazine:
+        if(words not in hashMap.keys()):
+            hashMap[words] = 1
+        else:
+            hashMap[words] += 1
+            
+            
+    for words in note:
+        if(words in hashMap.keys()):
+            if(hashMap[words] == 0):
+                print("No")
+                return
+            else:
+                hashMap[words] -=1
+        else:
+            print("No")
+            return 
+    
+    # print(hashMap)
+ 
+    print("Yes")
+    return
