@@ -1,0 +1,14 @@
+def twoStrings(s1, s2):
+    # Write your code here
+    
+    hashMap = {}
+    
+    for char in s1:
+        if(char not in hashMap.keys()):
+            hashMap[char] = 1
+    
+    for char in s2:
+        if(hashMap.get(char)):
+            return "YES"
+        
+    return "NO"
