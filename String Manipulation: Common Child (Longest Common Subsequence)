@@ -1,0 +1,16 @@
+def commonChild(s1, s2):
+    # Write your code here
+    
+    twoDArray = [[0 for j in range(len(s2)+1)] for i in range(len(s1)+1)]
+    
+    for i in range(len(s1)-1, -1, -1):
+        for j in range(len(s2)-1, -1, -1):
+            if(s1[i] == s2[j]):
+                twoDArray[i][j] = 1 + twoDArray[i+1][j+1]
+            else:
+                twoDArray[i][j] = max(twoDArray[i+1][j], twoDArray[i][j+1])
+                
+    
+    return twoDArray[0][0]
+
+    # Space complexity/time complexity => O(n*m) where n = len(s1) and m = len(s2)
